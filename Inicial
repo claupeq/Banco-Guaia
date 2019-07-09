@@ -1,0 +1,122 @@
+<?php
+$host = "localhost";
+$user = "root";
+$pass = "";
+$banco = "guaia";
+$conexao = mysql_connect ($host, $user, $pass) or die (mysql_error());
+mysql_select_db ($banco) or die (mysql_error());
+?>
+
+<?php
+session_start();
+if(!isset($SESSION["cpf"]) && !isset($SESSION["senha"] )){
+    
+    header ("Location: inicio.php");
+    exit;
+    }else{
+    
+    echo"voce esta Logado!";
+}
+?>
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+	 <script type="text/javascript" src="script.js"></script> 
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	   <meta http-equiv="content-Type" content="text/html; charset=utf-8"/>
+	      
+       <title>ajuda</title>
+		
+<script>(function () {
+    var Contrast = {
+        storage: 'contrastState',
+        cssClass: 'contrast',
+        currentState: null,
+        check: checkContrast,
+        getState: getContrastState,
+        setState: setContrastState,
+        toogle: toogleContrast,
+        updateView: updateViewContrast
+    };
+
+    window.toggleContrast = function () { Contrast.toogle(); };
+
+    Contrast.check();
+
+    function checkContrast() {
+        this.updateView();
+    }
+
+    function getContrastState() {
+        return localStorage.getItem(this.storage) === 'true';
+    }
+
+    function setContrastState(state) {
+        localStorage.setItem(this.storage, '' + state);
+        this.currentState = state;
+        this.updateView();
+    }
+
+    function updateViewContrast() {
+        var body = document.body;
+
+        if (this.currentState === null)
+            this.currentState = this.getState();
+
+        if (this.currentState)
+            body.classList.add(this.cssClass);
+        else
+            body.classList.remove(this.cssClass);
+    }
+
+    function toogleContrast() {
+        this.setState(!this.currentState);
+    }
+})();
+</script>
+</head>
+<body>
+
+<div class="navbar" id="myNavbar">
+
+  				<a href="inicio.php" class="active"><b> &#9946 BANCO GUAIÁ   </b></a>
+   				<a href="inicio.php" >Home</a>
+ 				 <a href="transacoes.php">Transações</a>
+                <a href="ajuda2.php">Ajuda</a>
+              <ul>
+		 <li><a href="#top" accesskey="1">  Principal [Alt + 1]</a></li>	
+		 <li><a href="#menu" accesskey="2">Início do Menu [Alt + 2]</a></li>
+		 <li><a href="#altocontraste" id="altocontraste" accesskey="3" onclick="window.toggleContrast()" onkeydown="window.toggleContrast()">Alto contraste [Alt + 3]</a></li>
+       </ul>
+
+<?php
+session_start();
+if(!isset($SESSION["cpf"]) && !isset($SESSION["senha"] )){
+    
+    header ("Location: login.php");
+    exit;
+    }else{
+    
+    echo"Usuario Logado";}
+?>
+    <a href= "index.html"> Sair</a>
+<section id="img" class="img">
+ 
+  <img src="menina.png" height="800" width="1400" alt="Uma menina cega fazendo ballet">
+<h2>Bem vindos ao banco Guaiá</h2>
+<h1>"NADA SOBRE NÓS SEM NÓS"</h1>
+
+
+
+    </section>
+    <footer id="rodape">
+            Banco Guaiá - TODOS OS DIREITOS RESERVADOS 
+		
+        </footer>
+        
+</body>
+</html>
