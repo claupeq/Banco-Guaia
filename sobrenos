@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+     <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	   <meta http-equiv="content-Type" content="text/html; charset=utf-8"/>
+	
+    </head>   
+       <title>  &#9946 Sobre Nós</title>
+		
+<script>(function () {
+    var Contrast = {
+        storage: 'contrastState',
+        cssClass: 'contrast',
+        currentState: null,
+        check: checkContrast,
+        getState: getContrastState,
+        setState: setContrastState,
+        toogle: toogleContrast,
+        updateView: updateViewContrast
+    };
+
+    window.toggleContrast = function () { Contrast.toogle(); };
+
+    Contrast.check();
+
+    function checkContrast() {
+        this.updateView();
+    }
+
+    function getContrastState() {
+        return localStorage.getItem(this.storage) === 'true';
+    }
+
+    function setContrastState(state) {
+        localStorage.setItem(this.storage, '' + state);
+        this.currentState = state;
+        this.updateView();
+    }
+
+    function updateViewContrast() {
+        var body = document.body;
+
+        if (this.currentState === null)
+            this.currentState = this.getState();
+
+        if (this.currentState)
+            body.classList.add(this.cssClass);
+        else
+            body.classList.remove(this.cssClass);
+    }
+
+    function toogleContrast() {
+        this.setState(!this.currentState);
+    }
+})();
+</script> 
+
+<div id="audimaWidget"></div>
+<script src="//audio.audima.co/audima-widget.js" defer></script>
+<body>
+
+ <div class="navbar" id="myNavbar">
+
+  <a href="index.php" class="active"><b> &#9946 BANCO GUAIÁ   </b></a>
+   <a href="index.php" >Home</a>
+  <a href="formulario.php">Abra sua conta</a>
+                <a href="sobrenos.php">Sobre Nós</a>
+                <a href="ajuda.php">Ajuda</a>
+                 <a href="login.php">Entrar</a>
+ <ul>
+		 <li><a href="#top"  accesskey="1">  Principal [Alt + 1]</a></li>	
+		 <li><a href="#menu" accesskey="2">Início do Menu [Alt + 2]</a></li>
+		 <li><a href="#altocontraste" id="altocontraste" accesskey="3" onclick="window.toggleContrast()" onkeydown="window.toggleContrast()">Alto contraste [Alt + 3]</a></li>
+       </ul>
+ 
+</div>
+	<section id="card">
+	 <img src="Imgcardreflexo.png"  alt="imagem do cartão do banco">
+	</section>
+    <h1>Quem Somos</h1>
+	
+	
+   <artiche class="quem-somos" >  
+    <h2>UMA WEB ACESSIVEL A TODOS </h2>
+    <p>O banco Guaiá surgiu da necessidade de se fazer uma internet acessível ao deficiente visual, não só através dos serviços bancários também no acesso a meios e produtos para toda e qualquer inclusão da 
+	pessoa com deficiência. Em uma sociedade justa, o acesso a produtos e serviços não pode discriminar qualquer usuário por razões de gênero, preferências e limitações. 
+	Neste Contexto, buscamos desenvolvimento de um banco mais acessível garantindo a acessibilidade de seus serviços.
+	
+    <h2>ATRAVÉS DA TECNOLOGIA CONTRIBUIR PARA A INCLUSÃO DO DEFICIENTE VISUAL</h2>
+    <p>O sistema bancário do Guaiá que será permitido que leitores de tela, interpretem todas as etapas dos processos bancários. 
+	É necessário que seja utilizado com leitores de tela como NVDA, Jaws e outros, tendo ainda o suporte de um cartão em braille para identificação de agência e conta.
+	 Seu principal objetivo e tornar acessíveis meios bancários considerados comuns.
+    </artiche>
+	
+	
+	
+
+    <footer id="rodape">
+            Banco Guaiá - TODOS OS DIREITOS RESERVADOS 
+		
+        </footer>
+      
+</body>
+</html>
