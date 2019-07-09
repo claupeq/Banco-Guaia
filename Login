@@ -1,0 +1,114 @@
+<?php
+session_start();
+?>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+   <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+	
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	   <meta http-equiv="content-Type" content="text/html; charset=utf-8"/>
+	  
+	       
+       <title> &#9946 Entrar</title>
+		
+<script>(function () {
+    var Contrast = {
+        storage: 'contrastState',
+        cssClass: 'contrast',
+        currentState: null,
+        check: checkContrast,
+        getState: getContrastState,
+        setState: setContrastState,
+        toogle: toogleContrast,
+        updateView: updateViewContrast
+    };
+
+    window.toggleContrast = function () { Contrast.toogle(); };
+
+    Contrast.check();
+
+    function checkContrast() {
+        this.updateView();
+    }
+
+    function getContrastState() {
+        return localStorage.getItem(this.storage) === 'true';
+    }
+
+    function setContrastState(state) {
+        localStorage.setItem(this.storage, '' + state);
+        this.currentState = state;
+        this.updateView();
+    }
+
+    function updateViewContrast() {
+        var body = document.body;
+
+        if (this.currentState === null)
+            this.currentState = this.getState();
+
+        if (this.currentState)
+            body.classList.add(this.cssClass);
+        else
+            body.classList.remove(this.cssClass);
+    }
+
+    function toogleContrast() {
+        this.setState(!this.currentState);
+    }
+})();
+</script>
+</head>
+<body>
+
+ <div class="navbar" id="myNavbar">
+
+  <a href="index.php" class="active"><b> &#9946 BANCO GUAIÁ   </b></a>
+   <a href="index.php" >Home</a>
+  <a href="formulario.php">Abra sua conta</a>
+                <a href="sobrenos.php">Sobre Nós</a>
+                <a href="ajuda.php">Ajuda</a>
+                 <a href="login.php">Entrar</a>
+ <ul>
+		 <li><a href="#top"  accesskey="1">  Principal [Alt + 1]</a></li>	
+		 <li><a href="#menu" accesskey="2">Início do Menu [Alt + 2]</a></li>
+		 <li><a href="#altocontraste" id="altocontraste" accesskey="3" onclick="window.toggleContrast()" onkeydown="window.toggleContrast()">Alto contraste [Alt + 3]</a></li>
+       </ul>
+</div>
+	<h1>Entrar na conta</h1>
+	
+<?php if(isset ($_SESSION ['loginErro'])) {
+		echo $_SESSION ['loginErro'];
+		unset ($_SESSION ['loginErro']);
+
+}?>
+
+    
+<form method="POST" action="inicio.php">
+    <div class="container">
+    <label for="uname"><b>CPF</b></label>
+    <input type="text" placeholder="Digite seu CPF" title="Digite seu cpef" name="uname" required aria-required="true">
+
+    <label for="psw"><b>Senha</b></label>
+    <input type="password" placeholder="Digite sua senha" title="Digite sua senha"name="psw" required aria-required="true">
+
+    <button type="submit" name "btnLogin" value"Acessar">Entrar</button> <button type="button" class="cancelbtn">Cancelar</button>
+    <label>
+      <input type="checkbox" checked="checked" name="remember"> Lembrar
+	   <span class="psw" > <a href="#">Esqueceu a senha?</a></span>
+    </label>
+  </div>
+
+</form>
+<p class="text-center  text-danger">
+
+    <footer id="rodape">
+            Banco Guaiá - TODOS OS DIREITOS RESERVADOS 
+		
+        </footer>
+     
+</body>
+</html>
